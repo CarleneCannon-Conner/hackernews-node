@@ -23,7 +23,7 @@ npx prisma init
 npx prisma migrate dev --preview-feature
 ```
 
-### Generate Prisma Client (creates `/node_modules/@prisma/client` that can be imported into code)
+### Generate Prisma Client (creates /node_modules/@prisma/client that can be imported into code)
 ```
 npx prisma generate
 ```
