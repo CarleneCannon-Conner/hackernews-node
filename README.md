@@ -28,7 +28,7 @@ npx prisma migrate dev --preview-feature
 npx prisma generate
 ```
 
-### Run Prisma Client
+### Run Prisma Client Tester Script
 ```
 node src/script.js
 ```
