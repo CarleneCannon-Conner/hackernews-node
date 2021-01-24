@@ -4,7 +4,7 @@ Following [How To GraphQL Tutorial](https://www.howtographql.com/graphql-js/0-in
 Currently building hackernews-node backend of project
 
 ## What am I working with
-graphql, apollo-server, @prisma/cli sqlite
+graphql, apollo-server, @prisma/cli & sqlite
 
 ## Comands
 ### Run GraphQL Playground
