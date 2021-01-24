@@ -8,7 +8,6 @@ graphql, apollo-server, @prisma/cli & sqlite
 
 ## Comands
 ### Run GraphQL Playground
-[http://localhost:4000](http://localhost:4000)
 ```
 node src/index.js
 ```
