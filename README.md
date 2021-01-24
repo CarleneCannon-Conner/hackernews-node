@@ -13,22 +13,26 @@ graphql, apollo-server, @prisma/cli & sqlite
 node src/index.js
 ```
 
-### Init Prisma (creates prisma directory)
+### Init Prisma 
+Creates prisma directory
 ```
 npx prisma init
 ```
 
-### Migrate db (creates tables)
+### Migrate db 
+Creates db
 ```
 npx prisma migrate dev --preview-feature
 ```
 
-### Generate Prisma Client (creates /node_modules/@prisma/client that can be imported into code)
+### Generate Prisma Client 
+Creates `node_modules/@prisma/client` that can be imported into code
 ```
 npx prisma generate
 ```
 
-### Run Prisma Client Tester Script
+### Run Prisma Client
+A Script To Test out Prisma
 ```
 node src/script.js
 ```
