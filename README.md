@@ -4,7 +4,7 @@ Following [How To GraphQL Tutorial](https://www.howtographql.com/graphql-js/0-in
 Currently building hackernews-node backend of project
 
 ## What am I working with
-graphql, apollo-server, @prisma/cli & sqlite
+graphql, apollo-server, @prisma/client @prisma/cli, bcryptjs, jsonwebtoken & sqlite
 
 ## Comands
 ### Run GraphQL Playground
@@ -18,22 +18,16 @@ Creates prisma directory
 npx prisma init
 ```
 
-### Migrate db 
-Creates db
+### Migrate db to prisma
+Create/update db `--name` is an optional param
 ```
-npx prisma migrate dev --preview-feature
+npx prisma migrate dev --name "add-user-model" --preview-feature
 ```
 
-### Generate Prisma Client 
+### Generate/Update Prisma Client 
 Creates `node_modules/@prisma/client` that can be imported into code
 ```
 npx prisma generate
-```
-
-### Run Prisma Client
-A Script To Test out Prisma
-```
-node src/script.js
 ```
 
 ### Explore data in Prisma Studio
