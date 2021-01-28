@@ -5,7 +5,7 @@ Currently building hackernews-node backend of project
 
 ## Comands
 ### Init Prisma 
-This has already been run in this repo. This command created a `prisma` directory containing a `schema.prisma` and `.env` file. `prisma/.env` is included in `.gitignore` to prevent accidently pushing secret tokens to a public repo.
+This command creates a `prisma` directory containing a `schema.prisma` and `.env` file. `prisma/.env` is included in `.gitignore` to prevent accidently pushing secret tokens to a public repo.
 
 `prisma/.env` will contain a `DATABASE_URL` variable. This is used by Prisma.
 
