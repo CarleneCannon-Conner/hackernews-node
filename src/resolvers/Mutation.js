@@ -48,6 +48,30 @@ async function post(parent, args, context, info) {
   return newLink
 }
 
+async function updateLink(parent, args, context, info) {
+  const link = await context.prisma.link.findUnique({ where: { id: Number(args.id) } })
+  
+  return context.prisma.link.update({
+    where: {
+      id: Number(args.id)
+    },
+    data: {
+      description: args.description || link.description,
+      url: args.url || link.url
+    }
+  })
+}
+
+async function deleteLink(parent, args, context, info) {
+  const link = await context.prisma.link.findUnique({ where: { id: Number(args.id) } })
+  
+  return context.prisma.link.delete({
+    where: {
+      id: Number(args.id)
+    }
+  })
+}
+
 async function vote(parent, args, context, info) {
   const userId = getUserId(context)
   
@@ -55,7 +79,7 @@ async function vote(parent, args, context, info) {
     where: {
       linkId_userId: {
         linkId: Number(args.linkId),
-        userId: userId
+        userId: Number(userId)
       }
     }
   })
@@ -79,5 +103,7 @@ module.exports = {
   signup,
   login,
   post,
+  updateLink,
+  deleteLink,
   vote,
 }

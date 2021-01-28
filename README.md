@@ -39,3 +39,209 @@ npx prisma studio
 ```
 node src/index.js
 ```
+
+#### Example Queries, Mutations & Subscriptions
+
+##### 1. Get info
+```
+query {
+  info
+}
+```
+
+##### 2. Sign up as a new user
+```
+mutation {
+  signup(email: "bob@example.com", password: "Pa$$w0rd", name: "Bobby") {
+    token
+    user {
+      id
+      email
+      name
+    }
+  }
+}
+```
+
+##### 3. Login as created user
+```
+mutation {
+  login(email: "bob@example.com",
+  password: "Pa$$w0rd") {
+    token
+    user {
+      id
+      email
+      name
+    }
+  }
+}
+```
+
+Make not of token
+
+In some of the following queries, mutations and subscriptions you will need to mimic being logged in, to do so:
+
+In HTTP HEADERS add, replacing `__TOKEN__` with noted token
+```
+{
+  "Authorization": "Bearer __TOKEN__"
+}
+```
+
+TODO: Evaluate if any more of these queries etc should also require authentication
+
+##### 4. Post a link (requires token)
+
+```
+mutation {
+  login(email: "bob@example.com",
+  password: "Pa$$w0rd") {
+    token
+    user {
+      id
+      email
+      name
+    }
+  }
+}
+```
+
+
+##### 5. List users
+
+```
+query{
+  users {
+    count
+    users {
+      id
+      name
+      email
+      links {
+        description
+      }
+    }
+  }
+}
+```
+
+##### 6. List feed
+
+```
+query{
+  feed {
+    count
+    links {
+      id
+      description
+      url
+      postedBy {
+        name
+      }
+    }
+  }
+}
+```
+
+##### 7. List feed
+
+```
+query{
+  feed {
+    count
+    links {
+      id
+      description
+      url
+      postedBy {
+        name
+      }
+    }
+  }
+}
+```
+
+##### 8. Update Link
+
+```
+mutation {
+  updateLink(id: 1,
+    description: "Bobby's first post updated") {
+    id
+    description
+    url
+  }
+}
+```
+
+##### 9. Delete Link
+
+```
+mutation {
+  deleteLink(id: 2) {
+    id
+  }
+}
+```
+
+##### 10. Vote for Link (requires token)
+
+```
+mutation {
+  vote (linkId: 1) {
+    id
+  	link {
+      description
+  	}
+  	user {
+      id
+    }
+  }
+}
+```
+
+##### 11. Subcribe/watch for link events
+In window/tab 1 run the following.
+
+```
+subscription {
+  newLink {
+    id
+    url
+    description
+    postedBy {
+      id
+      name
+      email
+    }
+  }
+}
+```
+In a second post a new link (4.)
+
+##### 12. Subcribe/watch for vote events
+In window/tab 1 run the following.
+
+```
+subscription {
+  newVote {
+    id
+    link {
+      id
+      description
+      url
+      postedBy {
+        name
+      }
+    }
+  	user {
+      id
+      name
+    }
+  }
+}
+```
+In a second vote for a link (10.)
+
+
