@@ -7,13 +7,14 @@ Currently building hackernews-node backend of project
 graphql, apollo-server, @prisma/client @prisma/cli, bcryptjs, jsonwebtoken & sqlite
 
 ## Comands
-### Run GraphQL Playground
-```
-node src/index.js
-```
-
 ### Init Prisma 
-Creates prisma directory
+This has already been run in this repo. This command created a `prisma` directory containing a `schema.prisma` and `.env` file. `prisma/.env` is included in `.gitignore` to prevent accidently pushing secret tokens to a public repo.
+
+`prisma/.env` will contain a `DATABASE_URL` variable. This is used by Prisma.
+
+Be sure to add an `APP_SECRET` variable to `prisma/.env`
+
+
 ```
 npx prisma init
 ```
@@ -21,7 +22,7 @@ npx prisma init
 ### Migrate db to prisma
 Create/update db `--name` is an optional param
 ```
-npx prisma migrate dev --name "add-user-model" --preview-feature
+npx prisma migrate dev --name "init" --preview-feature
 ```
 
 ### Generate/Update Prisma Client 
@@ -33,4 +34,9 @@ npx prisma generate
 ### Explore data in Prisma Studio
 ```
 npx prisma studio
+```
+
+### Run GraphQL Playground
+```
+node src/index.js
 ```
