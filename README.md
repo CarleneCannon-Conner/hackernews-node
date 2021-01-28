@@ -3,20 +3,22 @@ Following [How To GraphQL Tutorial](https://www.howtographql.com/graphql-js/0-in
 
 Currently building hackernews-node backend of project
 
-## Comands
-### Init Prisma 
-This command has already been run.
-This command created a `prisma` directory containing `schema.prisma` which I have since added to.
-
-This command also creates the file `.env`. I have included `.env` in `.gitignore` to prevent accidently pushing secret tokens to a public repo.
-
-Rename `example.env` to `.env` and change the `APP_SECRET` to something different. 
-
-This file will also contain a `DATABASE_URL` variable. This is used by Prisma and you may also wish to alter this.
+## Getting up and running locally
+### Init Prisma (skip this step)
 
 ```
 npx prisma init
 ```
+
+Note that in this repo, this command has already been run. When it was run, it created a directory called `prisma` that contained a file called `schema.prisma`. In this repo this file has since been modified.
+
+The command also created the file `.env`. Please note that`.env` is NOT included in this repo as it can contain secret tokens. Also note that `.env` has been added to `.gitignore` to prevent the accidental pushing of `.env` to a public repo.
+
+
+Please rename`example.env` to `.env` 
+
+There are currently 2 variables in this file that are used by this application. Go ahead and alter them as required.
+
 
 ### Migrate db to prisma
 Create/update db `--name` is an optional param
@@ -25,17 +27,17 @@ npx prisma migrate dev --name "init" --preview-feature
 ```
 
 ### Generate/Update Prisma Client 
-Creates `node_modules/@prisma/client` that can be imported into code
+Creates `node_modules/@prisma/client`. This is imported into the code
 ```
 npx prisma generate
 ```
 
-### Explore data in Prisma Studio
+### To Explore data in Prisma Studio
 ```
 npx prisma studio
 ```
 
-### Run GraphQL Playground
+### To Run GraphQL Playground
 ```
 node src/index.js
 ```
@@ -52,7 +54,7 @@ query {
 ##### 2. Sign up as a new user
 ```
 mutation {
-  signup(email: "bob@example.com", password: "Pa$$w0rd", name: "Bobby") {
+  signup(email: "hi@example.com", password: "Pa$$w0rd", name: "Jane Doe") {
     token
     user {
       id
@@ -66,7 +68,7 @@ mutation {
 ##### 3. Login as created user
 ```
 mutation {
-  login(email: "bob@example.com",
+  login(email: "hi@example.com",
   password: "Pa$$w0rd") {
     token
     user {
@@ -80,29 +82,26 @@ mutation {
 
 Make not of token
 
-In some of the following queries, mutations and subscriptions you will need to mimic being logged in, to do so:
+In some of the following requests you will need to mimic being logged in, to do so:
 
-In HTTP HEADERS add, replacing `__TOKEN__` with noted token
+In HTTP HEADERS add the following, replacing `__TOKEN__` with the previously noted token
 ```
 {
   "Authorization": "Bearer __TOKEN__"
 }
 ```
 
-TODO: Evaluate if any more of these queries etc should also require authentication
+TODO: Evaluate if any more of these requests ought to also require authentication
 
 ##### 4. Post a link (requires token)
 
 ```
 mutation {
-  login(email: "bob@example.com",
-  password: "Pa$$w0rd") {
-    token
-    user {
-      id
-      email
-      name
-    }
+  post(url: "www.example.com",
+  description: "My first post") {
+    id
+    url
+    description
   }
 }
 ```
@@ -118,9 +117,6 @@ query{
       id
       name
       email
-      links {
-        description
-      }
     }
   }
 }
@@ -144,30 +140,12 @@ query{
 }
 ```
 
-##### 7. List feed
-
-```
-query{
-  feed {
-    count
-    links {
-      id
-      description
-      url
-      postedBy {
-        name
-      }
-    }
-  }
-}
-```
-
-##### 8. Update Link
+##### 7. Update Link
 
 ```
 mutation {
   updateLink(id: 1,
-    description: "Bobby's first post updated") {
+    description: "Jane's first post updated") {
     id
     description
     url
@@ -175,7 +153,7 @@ mutation {
 }
 ```
 
-##### 9. Delete Link
+##### 8. Delete Link
 
 ```
 mutation {
@@ -185,7 +163,7 @@ mutation {
 }
 ```
 
-##### 10. Vote for Link (requires token)
+##### 9. Vote for Link (requires token)
 
 ```
 mutation {
@@ -201,8 +179,8 @@ mutation {
 }
 ```
 
-##### 11. Subcribe/watch for link events
-In window/tab 1 run the following.
+##### 10. Subcribe/watch for link events
+In the first window/tab run the following.
 
 ```
 subscription {
@@ -218,10 +196,10 @@ subscription {
   }
 }
 ```
-In a second post a new link (4.)
+In the second window/tab post a new link (4.)
 
 ##### 12. Subcribe/watch for vote events
-In window/tab 1 run the following.
+In the first window/tab run the following.
 
 ```
 subscription {
@@ -242,6 +220,6 @@ subscription {
   }
 }
 ```
-In a second vote for a link (10.)
+In the second window/tab vote for a link (10.)
 
 
