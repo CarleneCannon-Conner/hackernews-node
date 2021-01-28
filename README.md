@@ -6,7 +6,7 @@ Currently building hackernews-node backend of project
 ## Comands
 ### Init Prisma 
 This command has already been run.
-This command created a `prisma` directory containing a `schema.prisma` which I have since added to.
+This command created a `prisma` directory containing `schema.prisma` which I have since added to.
 
 This command also creates the file `.env`. I have included `.env` in `.gitignore` to prevent accidently pushing secret tokens to a public repo.
 
