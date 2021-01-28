@@ -12,7 +12,7 @@ This command also creates the file `.env`. I have included `.env` in `.gitignore
 
 Rename `example.env` to `.env` and change the `APP_SECRET` to something different. 
 
-This file will also contain a `DATABASE_URL` variable. This is used by Prisma.
+This file will also contain a `DATABASE_URL` variable. This is used by Prisma and you may also wish to alter this.
 
 ```
 npx prisma init
