@@ -16,10 +16,10 @@ Note that in this repo this command has already been run.
 
 <sup>The command also created the file `.env`. Please note that`.env` is NOT included in this repo as it can contain secret tokens. Also note that `.env` has been added to `.gitignore` to prevent the accidental pushing of `.env` to a public repo.</sup>
 
+### Set up Environment Variables
+Rename`example.env` to `.env` 
 
-Please rename`example.env` to `.env` 
-
-There are currently 2 variables in this file that are used by this application. Go ahead and alter them as required.
+There are currently 2 variables in this file that are used by this application. Alter them as required.
 
 
 ### Migrate db to prisma
