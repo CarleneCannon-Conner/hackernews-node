@@ -191,7 +191,7 @@ mutation {
 ##### 9. Vote for Link (requires token, you can <ins>not</ins> vote for your own link)
 ```
 mutation {
-  vote (linkId: 1) {
+  vote (linkId: 10) {
     id
   	link {
       description
