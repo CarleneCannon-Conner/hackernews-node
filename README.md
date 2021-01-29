@@ -1,4 +1,4 @@
-# how-to-graphql-tutorial (Still a work in progress)
+# hackernews-node (Still a work in progress)
 Following and building upon [How To GraphQL Tutorial](https://www.howtographql.com/graphql-js/0-introduction)
 
 Currently building hackernews-node backend of project
