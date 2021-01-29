@@ -163,7 +163,7 @@ mutation {
 }
 ```
 
-##### 9. Vote for Link (requires token, you can not vote for your own link)
+##### 9. Vote for Link (requires token, you can <ins>not</ins> vote for your own link)
 ```
 mutation {
   vote (linkId: 1) {
