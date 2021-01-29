@@ -140,6 +140,29 @@ query{
 }
 ```
 
+##### 8. Filtering, pagination and ordering
+Once you have a few links in your feed or a few users you can fiter the results like this:
+```
+query{
+  feed(filter: "post", skip: 1, take: 3, orderBy: {createdAt: desc }) {
+    count
+    links {
+      id
+      description
+      url
+      postedBy {
+        name
+      }
+    }
+  }
+}
+```
+<strong>Filtering:</strong> This example looks for all links with either a description or url that contains "post".
+
+<strong>Pagination:</strong> It skips the first result and limitting what is returned to no more than 3 links.
+
+<strong>Ordering:</strong> Finally, it orders the results by createdAt date in descending order.
+
 ##### 7. Update Link (requires token, you can only update your own link)
 
 ```
