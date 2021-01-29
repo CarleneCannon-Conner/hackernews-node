@@ -45,7 +45,7 @@ npx prisma studio
 node src/index.js
 ```
 
-#### Example Queries, Mutations & Subscriptions
+#### GraphQL Playground: Example Queries, Mutations & Subscriptions
 
 ##### 1. Get info
 ```
