@@ -12,9 +12,9 @@ npx prisma init
 
 Note that in this repo.
 
-<sub><sup>This command has already been run. When it was run, it created a directory called `prisma` that contained a file called `schema.prisma`. In this repo this file has since been modified.
+<sup>This command has already been run. When it was run, it created a directory called `prisma` that contained a file called `schema.prisma`. In this repo this file has since been modified.</sup>
 
-The command also created the file `.env`. Please note that`.env` is NOT included in this repo as it can contain secret tokens. Also note that `.env` has been added to `.gitignore` to prevent the accidental pushing of `.env` to a public repo.</sup></sub>
+<sup>The command also created the file `.env`. Please note that`.env` is NOT included in this repo as it can contain secret tokens. Also note that `.env` has been added to `.gitignore` to prevent the accidental pushing of `.env` to a public repo.</sup>
 
 
 Please rename`example.env` to `.env` 
