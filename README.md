@@ -161,7 +161,7 @@ query{
 ```
 <strong>Filtering:</strong> This example looks for all links with either a description or url that contains "post".
 
-<strong>Pagination:</strong> It skips the first result and limitting what is returned to no more than 3 links.
+<strong>Pagination:</strong> It skips the first result and limits what is returned to no more than 3 links.
 
 <strong>Ordering:</strong> Finally, it orders the results by createdAt date in descending order.
 
