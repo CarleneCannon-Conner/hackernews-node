@@ -104,7 +104,7 @@ async function vote(parent, args, context, info) {
 
   const newVote = context.prisma.vote.create({
     data: {
-      user: { connect: { id: userId } },
+      user: { connect: { id: Number(userId) } },
       link: { connect: { id: Number(args.linkId) } }
     }
   })
