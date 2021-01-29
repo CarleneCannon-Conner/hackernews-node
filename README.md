@@ -137,10 +137,7 @@ query{
 }
 ```
 
-##### 8. Update Link (requires token, you can only update your own link)
-=======
-##### 7. Update Link
->>>>>>> 44b4465f662a56dcc344d6b5770cb149bac14bd8
+##### 7. Update Link (requires token, you can only update your own link)
 
 ```
 mutation {
