@@ -49,8 +49,11 @@ async function post(parent, args, context, info) {
 }
 
 async function updateLink(parent, args, context, info) {
+  const userId = getUserId(context)
   const link = await context.prisma.link.findUnique({ where: { id: Number(args.id) } })
-  
+
+  if (userId !== link.postedById) throw new Error('Error link does not belong to user') 
+
   return context.prisma.link.update({
     where: {
       id: Number(args.id)
@@ -63,7 +66,10 @@ async function updateLink(parent, args, context, info) {
 }
 
 async function deleteLink(parent, args, context, info) {
+  const userId = getUserId(context)
   const link = await context.prisma.link.findUnique({ where: { id: Number(args.id) } })
+
+  if (userId !== link.postedById) throw new Error('Error link does not belong to user') 
   
   return context.prisma.link.delete({
     where: {
@@ -74,7 +80,15 @@ async function deleteLink(parent, args, context, info) {
 
 async function vote(parent, args, context, info) {
   const userId = getUserId(context)
-  
+
+  const link = await context.prisma.link.findUnique({
+    where: {
+      id: Number(args.linkId)
+    }
+  })
+
+  if (userId === link.postedById) throw new Error('Error user can not vote for their own link') 
+
   const vote = await context.prisma.vote.findUnique({
     where: {
       linkId_userId: {

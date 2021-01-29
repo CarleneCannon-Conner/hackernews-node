@@ -1,5 +1,5 @@
 # how-to-graphql-tutorial (Still a work in progress)
-Following [How To GraphQL Tutorial](https://www.howtographql.com/graphql-js/0-introduction)
+Following and building upon [How To GraphQL Tutorial](https://www.howtographql.com/graphql-js/0-introduction)
 
 Currently building hackernews-node backend of project
 
@@ -89,8 +89,6 @@ In HTTP HEADERS add, replacing `__TOKEN__` with noted token
 }
 ```
 
-TODO: Evaluate if any more of these queries etc should also require authentication
-
 ##### 4. Post a link (requires token)
 
 ```
@@ -106,7 +104,6 @@ mutation {
   }
 }
 ```
-
 
 ##### 5. List users
 
@@ -162,7 +159,7 @@ query{
 }
 ```
 
-##### 8. Update Link
+##### 8. Update Link (requires token, you can only update your own link)
 
 ```
 mutation {
@@ -175,7 +172,7 @@ mutation {
 }
 ```
 
-##### 9. Delete Link
+##### 9. Delete Link (requires token, you can only delete your own link)
 
 ```
 mutation {
@@ -185,8 +182,8 @@ mutation {
 }
 ```
 
-##### 10. Vote for Link (requires token)
-
+##### 10. Vote for Link (requires token, you can not vote for your own link)
+TODO: See if I can prevent user voting for their own
 ```
 mutation {
   vote (linkId: 1) {
