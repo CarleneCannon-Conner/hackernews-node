@@ -24,10 +24,12 @@ There are currently 2 variables in this file that are used by this application. 
 
 
 ### Migrate db to prisma
-Create/update db `--name` is an optional param
+Create/update db 
 ```
 npx prisma migrate dev --name "init" --preview-feature
 ```
+
+`--name` is an optional param
 
 ### Generate/Update Prisma Client 
 Creates `node_modules/@prisma/client`. This is imported into the code
