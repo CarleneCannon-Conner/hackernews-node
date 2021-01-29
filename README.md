@@ -14,9 +14,10 @@ Note that in this repo this command has already been run.
 
 <sup>When it was run, it created a directory called `prisma` that contained a file called `schema.prisma`. In this repo this file has since been modified.</sup>
 
-<sup>The command also created the file `.env`. Please note that`.env` is NOT included in this repo as it can contain secret tokens. Also note that `.env` has been added to `.gitignore` to prevent the accidental pushing of `.env` to a public repo.</sup>
-
 ### Set up Environment Variables
+
+<sup>The pervious command also created the file `.env`. Please note that`.env` is NOT included in this repo as it can contain secret tokens. Also note that `.env` has been added to `.gitignore` to prevent the accidental pushing of `.env` to a public repo.</sup>
+
 Rename`example.env` to `.env` 
 
 There are currently 2 variables in this file that are used by this application. Alter them as required.
